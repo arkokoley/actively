@@ -61,23 +61,32 @@ var ActiveTimeIntervals = active.times; // array of time periods with user activ
 ### Public methods
 
 #### running <sup>Bool</sup>
+
 Shows is user is active on current webpage and the timer is running.
 
 #### times <sup>Array</sup>
+
 Array of timeDurations when the user was active.
 
-Each time duration is an  Object({
-      start: DateTime,
-      stop: DateTime
+Each time duration is
+
+```js
+ Object({
+      start: Date,
+      stop: Date
     })
+```
 
 #### idle <sup>Bool</sup>
+
 True when the user is inactive on current webpage and the timer is stopped.
 
 #### currentIdleTimeMs <sup>Integer</sup>
+
 Time elapsed(in miliseconds) since the user was last active.
 
 #### idleTimeoutMs <sup>Integer</sup>
+
 The idle time for a user after which timer stops and user is marked as inactive.
 
 ## Public Demo
