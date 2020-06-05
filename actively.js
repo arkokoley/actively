@@ -1,5 +1,6 @@
-import throttle from 'lodash/throttle'
+//import lodash from 'lodash-es/throttle.js'
 
+const throttle = require('lodash/throttle')
 const windowIdleEvents = ['scroll', 'resize']
 const documentIdleEvents = [
   'mousemove',
@@ -10,7 +11,7 @@ const documentIdleEvents = [
   'contextmenu'
 ]
 
-export default class Actively {
+class Actively {
   running
   times
   idle
@@ -274,3 +275,6 @@ export default class Actively {
     return this.measures[name]
   }
 }
+
+global.Actively = Actively;
+module.exports = Actively;

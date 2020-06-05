@@ -18,5 +18,8 @@
   "homepage": "https://github.com/arkokoley/actively#readme",
   "dependencies": {
     "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^8.0.1"
   }
 }

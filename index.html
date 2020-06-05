@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Creating an Npm-driven Website</title>
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>Your Google Maps Locations</h1>
+
+    <form id="geocoding_form" class="form-horizontal">
+      <div class="form-group">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <div class="input-group">
+            <input type="text" class="form-control" id="address" placeholder="Enter your location...">
+            <span class="input-group-btn">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="map-overlay">
+      <p>Loading...</p>
+      <div id="map"></div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-md-offset-3 save-container">
+      <h4 id="save-location"></h4>
+      <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+    </div>
+
+    <div class="list-group col-xs-12 col-md-6 col-md-offset-3">
+      <span class="list-group-item active">Saved Locations</span>
+    </div>
+
+  </div>
+
+  <!-- The actively library -->
+  <!--script type="module" src="node_modules/lodash/throttle.js"></script-->
+  <script src="output/actively.js"></script>
+
+  <script>
+    const active = new window.Actively({
+    timeIntervalEllapsedCallbacks: [],
+    absoluteTimeEllapsedCallbacks: [],
+    browserTabInactiveCallbacks: [],
+    browserTabActiveCallbacks: [],
+    idleTimeoutMs: 3000,
+    checkCallbacksIntervalMs: 250
+    })
+
+    window.addEventListener('mousemove', active.startTimer)
+    window.addEventListener('beforeunload', active.stopTimer)
+  </script>
+</body>
+</html>
